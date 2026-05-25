@@ -1,0 +1,142 @@
+/* * Pages - Auth 
+ * Estilos específicos para a página de Login e Cadastro (Split-screen)
+ */
+
+/* Container que ocupa 100% da altura da tela */
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Em telas grandes (lg), o wrapper vira um flex row (lado a lado) */
+@media (min-width: 992px) {
+    .auth-wrapper {
+        flex-direction: row;
+    }
+}
+
+/* Lado da Imagem/Informação (Menor espaço) */
+.auth-wrapper .auth-info-side {
+    background-color: var(--color-primary);
+    /* Usaremos um gradiente temporário caso a imagem não carregue */
+    background-image: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(30, 58, 138, 0.7) 100%), url('../../img/placeholders/auth-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    flex: 1; /* Ocupa o espaço restante no mobile (topo) */
+}
+
+/* Lado do Formulário (Maior espaço) */
+.auth-wrapper .auth-form-side {
+    background-color: var(--color-bg-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    flex: 1;
+}
+
+/* Controle de proporção no Desktop (Aprox. 40% info / 60% form) */
+@media (min-width: 992px) {
+    .auth-wrapper .auth-info-side {
+        flex: 0 0 40%;
+    }
+    .auth-wrapper .auth-form-side {
+        flex: 0 0 60%;
+        padding: 4rem;
+    }
+}
+
+/* Formulário Container - Limita a largura para não esticar muito no desktop */
+.auth-wrapper .form-container {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Links e Botões de Texto */
+.auth-wrapper .auth-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.auth-wrapper .auth-link:hover {
+    filter: brightness(0.85); /* Escurece levemente o texto laranja no hover */
+    text-decoration: underline;
+}
+
+/* Botão de Submit Padrão (Sem !important, usando alta especificidade) */
+.auth-wrapper .btn-submit {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.auth-wrapper .btn-submit:hover {
+    filter: brightness(1.2); /* Clareia o azul marinho */
+    color: var(--color-white);
+}
+
+/* Botões Sociais Circulares */
+.auth-wrapper .social-login {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.auth-wrapper .btn-social {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 1px solid var(--color-gray-medium);
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.auth-wrapper .btn-social:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    transform: translateY(-3px); /* Leve efeito de elevação */
+    box-shadow: var(--shadow-md);
+}
+
+/* Linha divisória para "ou acesse com" */
+.auth-wrapper .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--color-gray-medium);
+    margin: 2rem 0 1rem 0;
+}
+
+.auth-wrapper .divider::before,
+.auth-wrapper .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #d1d5db; /* Cinza claro */
+}
+
+.auth-wrapper .divider:not(:empty)::before {
+    margin-right: .5em;
+}
+
+.auth-wrapper .divider:not(:empty)::after {
+    margin-left: .5em;
+}
