@@ -1,0 +1,25 @@
+/* * Design System - Paleta de Cores e Variáveis Base
+ * Foco em sustentabilidade, modernidade e confiabilidade
+ */
+:root {
+  /* Cores Principais */
+  --color-primary: #1E3A8A; /* Azul Marinho - Confiabilidade */
+  --color-secondary: #F97316; /* Laranja - Call to action / Modernidade */
+  
+  /* Tons Neutros */
+  --color-white: #FFFFFF;
+  --color-bg-light: #F3F4F6; /* Cinza claro para o fundo */
+  --color-gray-medium: #9CA3AF;
+  --color-text-dark: #1F2937; /* Cinza escuro para textos - Melhor contraste */
+
+  /* Tipografia */
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Sombras e Bordas */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  
+  /* Transições */
+  --transition-fast: 0.2s ease-in-out;
+}
