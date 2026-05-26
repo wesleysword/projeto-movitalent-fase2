@@ -1,0 +1,66 @@
+/* * Components - Features
+ * Handles the styling for the informational benefits section (trust, security, eco)
+ */
+
+.features-section {
+    /* Using our light gray background to contrast with the white sections above and below */
+    background-color: var(--color-bg-light);
+    border-top: 1px solid #E5E7EB;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+/* Feature Card Styling */
+.feature-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: 2.5rem 1.5rem;
+    height: 100%;
+    text-align: center;
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+    /* Subtle blue border on hover */
+    border-color: rgba(30, 58, 138, 0.15); 
+}
+
+/* Circular Icon Wrapper */
+.feature-card .feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Soft orange background */
+    background-color: rgba(249, 115, 22, 0.1); 
+    color: var(--color-secondary);
+    border-radius: 50%;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Icon hover animation (Inverts colors and grows slightly) */
+.feature-card:hover .feature-icon {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    transform: scale(1.1);
+}
+
+.feature-card .feature-title {
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.feature-card .feature-text {
+    color: var(--color-gray-medium);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}

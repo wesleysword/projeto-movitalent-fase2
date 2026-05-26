@@ -1,0 +1,79 @@
+/* * Components - Categories
+ * Handles the styling for the trending categories slider section
+ */
+
+.trending-section {
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-bg-light);
+}
+
+/* Fluid Horizontal Scroll Container */
+.trending-section .category-slider {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scrollbar-width: none; /* Hides scrollbar on Firefox */
+    padding: 1rem 0.5rem;
+    -webkit-overflow-scrolling: touch; /* Smooth inertia scroll on iOS */
+}
+
+/* Hides scrollbar on Chrome, Safari and Opera */
+.trending-section .category-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* Interactive Category Item Card */
+.trending-section .category-card {
+    flex: 0 0 auto;
+    width: 160px;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-radius: var(--border-radius);
+    background-color: var(--color-bg-light);
+    text-decoration: none;
+    color: var(--color-text-dark);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* Accurate selectors to increase specificity without !important */
+.trending-section .category-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-secondary);
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-md);
+    color: var(--color-primary);
+}
+
+/* Icon Container Inside the Card */
+.trending-section .category-card .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+    font-size: 1.75rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Inverting colors on hover with a smooth transition */
+.trending-section .category-card:hover .icon-wrapper {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.trending-section .category-card .category-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.trending-section .category-card .deals-count {
+    font-size: 0.8rem;
+    color: var(--color-gray-medium);
+}

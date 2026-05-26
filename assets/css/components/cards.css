@@ -1,0 +1,54 @@
+/* * Components - Cards
+ * Padrão visual para os itens anunciados na vitrine
+ */
+
+.item-card {
+    border: none;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    height: 100%; /* Garante que todos os cards na mesma linha tenham a mesma altura */
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.item-card .card-img-top {
+    height: 200px;
+    object-fit: cover; /* Impede que imagens de tamanhos diferentes quebrem o layout */
+    border-bottom: 1px solid var(--color-bg-light);
+}
+
+.item-card .badge-category {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--color-primary);
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+}
+
+/* Cores específicas para os 3 tipos de negociação */
+.badge-type-1 { background-color: #10B981; color: white; } /* Venda/Pago */
+.badge-type-2 { background-color: var(--color-primary); color: white; } /* Grátis */
+.badge-type-3 { background-color: var(--color-secondary); color: white; } /* Cobro Retirada */
+
+.item-card .card-title {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita o título a 2 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.item-card .location-text {
+    font-size: 0.85rem;
+    color: var(--color-gray-medium);
+}

@@ -1,0 +1,59 @@
+/* * Layout - Hero Section 
+ * Responsável pela primeira dobra (Above the fold) da página inicial
+ */
+
+.hero-section {
+    position: relative;
+    min-height: 85vh; 
+    display: flex;
+    align-items: center;
+    /* Nova Imagem: Focada em televisores de tubo (CRT), eletrônicos vintage e descarte */
+    background-image: url('../../img/hero-image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Mantemos a sobreposição para garantir a leitura do texto branco */
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(30, 58, 138, 0.6) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Customização dos Botões do Hero */
+.hero-section .btn-hero-primary {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: 2px solid var(--color-secondary);
+    transition: all 0.3s ease;
+}
+
+.hero-section .btn-hero-primary:hover {
+    filter: brightness(1.15);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+.hero-section .btn-hero-outline {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+    transition: all 0.3s ease;
+}
+
+.hero-section .btn-hero-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
