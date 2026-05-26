@@ -1,76 +1,178 @@
-const mockItems = [
-    {
-        id: 1,
-        title: "Televisão de Tubo 29' (Funcionando)",
-        category: "Eletrônicos",
-        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-        location: "São Paulo, SP",
-        negotiationType: 2,
-        negotiationText: "Retiro Gratuitamente",
-        timeRemaining: "15 dias"
-    },
-    {
-        id: 2,
-        title: "Lote de Telhas Coloniais Usadas (Aprox. 200 un)",
-        category: "Construção",
-        image: "https://images.unsplash.com/photo-1621252179027-9ba4595274af?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-        location: "Campinas, SP",
-        negotiationType: 1,
-        negotiationText: "R$ 150 pelo lote",
-        timeRemaining: "7 dias"
-    },
-    {
-        id: 3,
-        title: "Sofá 3 Lugares com avarias no tecido",
-        category: "Móveis",
-        image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-        location: "Belo Horizonte, MG",
-        negotiationType: 3,
-        negotiationText: "Cobro R$ 80 para retirar",
-        timeRemaining: "24h"
-    },
-    {
-        id: 4,
-        title: "Madeira de Demolição e Caixotes",
-        category: "Madeira",
-        image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-        location: "Curitiba, PR",
-        negotiationType: 2,
-        negotiationText: "Retiro Gratuitamente",
-        timeRemaining: "30 dias"
-    }
-];
+import { items } from '../data/items.js';
+
+let currentItems = [...items];
+let currentPage = 1;
+let itemsPerPage = 12;
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderShowcase();
+    const grid = document.getElementById('showcase-grid');
+    if (!grid) return;
+
+    const paginationContainer = document.getElementById('pagination-container');
+
+    if (paginationContainer) {
+        setupFilters();
+        setupPerPageSelector();
+        updateResultsCount();
+        renderPage(currentPage);
+    } else {
+        renderGrid(items.slice(0, 4));
+    }
 });
 
-function renderShowcase() {
-    const showcaseGrid = document.getElementById('showcase-grid');
-    if (!showcaseGrid) return;
+function setupFilters() {
+    const searchInput = document.getElementById('search-input');
+    const categorySelect = document.getElementById('category-filter');
+    const regionSelect = document.getElementById('region-filter');
+    const btnFilter = document.getElementById('btn-filter');
 
-    showcaseGrid.innerHTML = '';
+    const applyFilters = () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const categoryTerm = categorySelect.value;
+        const regionTerm = regionSelect.value;
 
-    mockItems.forEach(item => {
-        const badgeClass = `badge-type-${item.negotiationType}`;
+        currentItems = items.filter(item => {
+            const matchesSearch = item.title.toLowerCase().includes(searchTerm) || item.location.toLowerCase().includes(searchTerm);
+            const matchesCategory = categoryTerm === "" || item.category === categoryTerm;
+            const matchesRegion = regionTerm === "" || item.location.includes(regionTerm);
+            
+            return matchesSearch && matchesCategory && matchesRegion;
+        });
 
+        currentPage = 1;
+        updateResultsCount();
+        renderPage(currentPage);
+    };
+
+    btnFilter.addEventListener('click', applyFilters);
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') applyFilters();
+    });
+    categorySelect.addEventListener('change', applyFilters);
+    regionSelect.addEventListener('change', applyFilters);
+}
+
+function setupPerPageSelector() {
+    const perPageSelect = document.getElementById('per-page-select');
+    if (!perPageSelect) return;
+
+    perPageSelect.addEventListener('change', (e) => {
+        itemsPerPage = parseInt(e.target.value, 10);
+        currentPage = 1;
+        renderPage(currentPage);
+    });
+}
+
+function updateResultsCount() {
+    const resultsCount = document.getElementById('results-count');
+    if (resultsCount) {
+        resultsCount.textContent = `Encontrados ${currentItems.length} itens`;
+    }
+}
+
+function renderPage(page) {
+    const totalPages = Math.ceil(currentItems.length / itemsPerPage);
+    if (page < 1) page = 1;
+    if (page > totalPages && totalPages > 0) page = totalPages;
+
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const itemsToRender = currentItems.slice(startIndex, endIndex);
+
+    renderGrid(itemsToRender);
+    renderPagination(totalPages);
+}
+
+function renderGrid(itemsToRender) {
+    const grid = document.getElementById('showcase-grid');
+    grid.innerHTML = '';
+
+    if (itemsToRender.length === 0) {
+        grid.innerHTML = `<div class="col-12 text-center py-5"><p class="text-muted fs-5">Nenhum item encontrado com os filtros selecionados.</p></div>`;
+        return;
+    }
+
+    itemsToRender.forEach(item => {
         const cardHTML = `
-            <div class="col-12 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                 <div class="card item-card position-relative">
                     <span class="badge badge-category rounded-pill shadow-sm">${item.category}</span>
                     <img src="${item.image}" class="card-img-top" alt="${item.title}">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title mb-3">${item.title}</h5>
-                        <p class="location-text mb-2"><i class="bi bi-geo-alt me-1"></i> ${item.location}</p>
+                        <h5 class="card-title mb-2">${item.title}</h5>
+                        <p class="location-text mb-3"><i class="bi bi-geo-alt me-1"></i> ${item.location}</p>
+                        
+                        <div class="advertiser-profile mb-4">
+                            <img src="${item.advertiser.avatar}" alt="${item.advertiser.name}" class="advertiser-avatar">
+                            <div class="advertiser-info">
+                                <span class="advertiser-name">${item.advertiser.name}</span>
+                                <div class="advertiser-stats">
+                                    <span><i class="bi bi-star-fill"></i> ${item.advertiser.rating}</span>
+                                    <span>&bull;</span>
+                                    <span>${item.advertiser.deals} negócios</span>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="mt-auto">
-                            <span class="badge ${badgeClass} w-100 py-2 mb-2 fs-6 fw-semibold text-wrap">${item.negotiationText}</span>
-                            <small class="text-muted d-block text-center"><i class="bi bi-clock me-1"></i> Faltam ${item.timeRemaining}</small>
+                            <a href="./item-details.html?id=${item.id}" class="btn btn-details w-100 rounded-pill fw-bold text-center text-decoration-none py-2">Veja mais detalhes</a>
+                            <small class="text-muted d-block text-center mt-2"><i class="bi bi-clock me-1"></i> Faltam ${item.timeRemaining}</small>
                         </div>
                     </div>
                 </div>
             </div>
         `;
         
-        showcaseGrid.insertAdjacentHTML('beforeend', cardHTML);
+        grid.insertAdjacentHTML('beforeend', cardHTML);
+    });
+}
+
+function renderPagination(totalPages) {
+    const paginationContainer = document.getElementById('pagination-container');
+    if (!paginationContainer) return;
+
+    paginationContainer.innerHTML = '';
+
+    if (totalPages <= 1) return;
+
+    let paginationHTML = `<ul class="pagination custom-pagination justify-content-center m-0">`;
+
+    paginationHTML += `
+        <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+            <button class="page-link" data-page="${currentPage - 1}" aria-label="Anterior">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+        </li>
+    `;
+
+    for (let i = 1; i <= totalPages; i++) {
+        paginationHTML += `
+            <li class="page-item ${i === currentPage ? 'active' : ''}">
+                <button class="page-link" data-page="${i}">${i}</button>
+            </li>
+        `;
+    }
+
+    paginationHTML += `
+        <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+            <button class="page-link" data-page="${currentPage + 1}" aria-label="Próximo">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </li>
+    `;
+
+    paginationHTML += `</ul>`;
+    paginationContainer.innerHTML = paginationHTML;
+
+    const pageButtons = paginationContainer.querySelectorAll('.page-link');
+    pageButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const newPage = parseInt(e.currentTarget.getAttribute('data-page'));
+            if (!isNaN(newPage) && newPage !== currentPage && newPage > 0 && newPage <= totalPages) {
+                currentPage = newPage;
+                renderPage(currentPage);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
     });
 }

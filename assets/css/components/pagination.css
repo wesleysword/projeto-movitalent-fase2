@@ -1,0 +1,23 @@
+.custom-pagination .page-link {
+    color: var(--color-primary);
+    border: none;
+    margin: 0 0.25rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.custom-pagination .page-link:hover {
+    background-color: var(--color-bg-light);
+    color: var(--color-secondary);
+}
+
+.custom-pagination .page-item.active .page-link {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.custom-pagination .page-item.disabled .page-link {
+    color: var(--color-gray-medium);
+    background-color: transparent;
+}

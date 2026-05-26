@@ -15,7 +15,12 @@
     <link rel="stylesheet" href="../assets/css/base/variables.css">
     <link rel="stylesheet" href="../assets/css/base/reset.css">
     <link rel="stylesheet" href="../assets/css/layout/navbar.css">
+    <link rel="stylesheet" href="../assets/css/layout/footer.css">
+    
+    <link rel="stylesheet" href="../assets/css/components/brand.css">
     <link rel="stylesheet" href="../assets/css/components/cards.css">
+    <link rel="stylesheet" href="../assets/css/components/filters.css">
+    <link rel="stylesheet" href="../assets/css/components/pagination.css">
 </head>
 <body style="padding-top: 100px;">
 
@@ -23,7 +28,9 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
                 <img src="../assets/img/box-logo.svg" alt="Logo EcoTrade" width="40" height="40">
-                <span class="navbar-brand-text text-orange">EcoTrade</span>
+                <span class="brand-text-wrapper fs-4">
+                    <span class="brand-eco">Eco</span><span class="brand-trade">Trade</span>
+                </span>
             </a>
             
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Alternar navegação">
@@ -48,25 +55,132 @@
     </nav>
 
     <main class="container py-5">
-        <div class="row mb-5">
+        <div class="row mb-4">
             <div class="col-lg-8">
                 <h1 class="fw-bold" style="color: var(--color-primary);">Marketplace EcoTrade</h1>
                 <p class="text-muted fs-5">Descubra itens disponíveis para retirada, compra ou descarte inteligente.</p>
             </div>
         </div>
 
-        <div class="row g-4" id="showcase-grid">
-            <div class="col-12 text-center py-5">
-                <div class="spinner-border text-secondary" role="status">
-                    <span class="visually-hidden">Loading items...</span>
+        <div class="filter-section">
+            <div class="row g-3">
+                <div class="col-12 col-md-4">
+                    <input type="text" id="search-input" class="form-control form-control-lg custom-input" placeholder="Buscar por título ou cidade...">
+                </div>
+                <div class="col-12 col-md-3">
+                    <select id="category-filter" class="form-select form-select-lg custom-input">
+                        <option value="">Todas as Categorias</option>
+                        <option value="Eletrônicos">Eletrônicos</option>
+                        <option value="Móveis">Móveis</option>
+                        <option value="Vestuário">Vestuário</option>
+                        <option value="Construção">Construção</option>
+                        <option value="Ferramentas">Ferramentas</option>
+                        <option value="Livros">Livros</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-3">
+                    <select id="region-filter" class="form-select form-select-lg custom-input">
+                        <option value="">Todos os Estados</option>
+                        <option value="SP">São Paulo (SP)</option>
+                        <option value="RJ">Rio de Janeiro (RJ)</option>
+                        <option value="MG">Minas Gerais (MG)</option>
+                        <option value="PR">Paraná (PR)</option>
+                        <option value="RS">Rio Grande do Sul (RS)</option>
+                        <option value="BA">Bahia (BA)</option>
+                        <option value="PE">Pernambuco (PE)</option>
+                        <option value="DF">Distrito Federal (DF)</option>
+                        <option value="GO">Goiás (GO)</option>
+                        <option value="CE">Ceará (CE)</option>
+                        <option value="AM">Amazonas (AM)</option>
+                        <option value="ES">Espírito Santo (ES)</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2">
+                    <button id="btn-filter" class="btn btn-primary-custom w-100 h-100 fw-bold fs-6">Buscar</button>
                 </div>
             </div>
         </div>
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+            <p class="text-muted fw-semibold mb-3 mb-md-0" id="results-count">Encontrados 0 itens</p>
+            <div class="d-flex align-items-center gap-2">
+                <label for="per-page-select" class="text-muted" style="white-space: nowrap;">Mostrar:</label>
+                <select id="per-page-select" class="form-select form-select-sm custom-input" style="width: auto;">
+                    <option value="8">8 por página</option>
+                    <option value="12" selected>12 por página</option>
+                    <option value="24">24 por página</option>
+                    <option value="36">36 por página</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5" id="showcase-grid"></div>
+
+        <nav id="pagination-container" aria-label="Navegação de páginas"></nav>
+
     </main>
 
-    <footer class="py-5 bg-white border-top mt-5">
-        <div class="container text-center">
-            <p class="text-muted mb-0">&copy; 2024 EcoTrade - Economia Circular Inteligente.</p>
+    <footer class="footer-section mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 col-lg-4">
+                    <a href="../index.html" class="footer-brand text-decoration-none d-flex align-items-center gap-2">
+                        <img src="../assets/img/box-logo.svg" alt="Logo EcoTrade" width="32" height="32">
+                        <span class="brand-text-wrapper">
+                            <span class="brand-eco">Eco</span><span class="brand-trade">Trade</span>
+                        </span>
+                    </a>
+                    <p class="footer-description mt-3 pe-lg-4">
+                        Conectando pessoas para um descarte inteligente e sustentável. Promovendo a economia circular todos os dias.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-2">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <nav class="d-flex flex-column">
+                        <a href="../index.html" class="footer-link">Início</a>
+                        <a href="./items.html" class="footer-link">Explorar Itens</a>
+                        <a href="./auth.html" class="footer-link">Entrar / Cadastrar</a>
+                    </nav>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <h4 class="footer-heading">Legal</h4>
+                    <nav class="d-flex flex-column">
+                        <a href="#" class="footer-link">Termos de Serviço</a>
+                        <a href="#" class="footer-link">Política de Privacidade</a>
+                        <a href="#" class="footer-link">Política de Cookies</a>
+                        <a href="#" class="footer-link">Diretrizes de Comunidade</a>
+                    </nav>
+                </div>
+
+                <div class="col-12 col-lg-3">
+                    <h4 class="footer-heading">Contato</h4>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Av. Sustentabilidade, 1024<br>Vila Circular - São Paulo, SP<br>CEP 01010-010</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <span>contato@ecotrade.com.br</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-telephone"></i>
+                        <span>(11) 4002-8922</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container text-center">
+                <p class="mb-0">&copy; 2026 EcoTrade. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 

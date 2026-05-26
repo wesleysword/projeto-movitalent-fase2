@@ -29,10 +29,6 @@
     backdrop-filter: blur(4px);
 }
 
-.badge-type-1 { background-color: #10B981; color: white; }
-.badge-type-2 { background-color: var(--color-primary); color: white; }
-.badge-type-3 { background-color: var(--color-secondary); color: white; }
-
 .item-card .card-title {
     color: var(--color-primary);
     font-weight: 700;
@@ -46,4 +42,57 @@
 .item-card .location-text {
     font-size: 0.85rem;
     color: var(--color-gray-medium);
+}
+
+.advertiser-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-bg-light);
+}
+
+.advertiser-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.advertiser-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.advertiser-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    line-height: 1.2;
+}
+
+.advertiser-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--color-gray-medium);
+    margin-top: 0.2rem;
+}
+
+.advertiser-stats i.bi-star-fill {
+    color: #F59E0B;
+}
+
+.btn-details {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    transition: all 0.3s ease;
+}
+
+.btn-details:hover {
+    background-color: #E06512; 
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(249, 115, 22, 0.25);
 }
