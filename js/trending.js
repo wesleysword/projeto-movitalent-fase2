@@ -1,9 +1,3 @@
-/**
- * File: trending.js
- * Description: Manages and dynamically renders the top-performing categories based on weekly stats.
- */
-
-// Mock data representing the most successful categories this week
 const mockTrendingCategories = [
     {
         name: "Eletrônicos",
@@ -41,14 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTrendingCategories();
 });
 
-/**
- * Injects category elements dynamically into the DOM container
- */
 function renderTrendingCategories() {
     const sliderContainer = document.getElementById('category-slider');
     if (!sliderContainer) return;
 
-    // Reset container content
     sliderContainer.innerHTML = '';
 
     mockTrendingCategories.forEach(category => {

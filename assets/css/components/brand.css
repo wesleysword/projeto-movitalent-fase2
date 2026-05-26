@@ -1,0 +1,14 @@
+.brand-text-wrapper {
+    white-space: nowrap;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+}
+
+.brand-text-wrapper .brand-eco {
+    color: var(--color-white);
+}
+
+.brand-text-wrapper .brand-trade {
+    color: var(--color-secondary);
+}

@@ -1,9 +1,3 @@
-/**
- * File: showcase.js
- * Description: Responsible for dynamically injecting item cards into the homepage.
- */
-
-// Mock data simulating items from a database
 const mockItems = [
     {
         id: 1,
@@ -11,7 +5,7 @@ const mockItems = [
         category: "Eletrônicos",
         image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
         location: "São Paulo, SP",
-        negotiationType: 2, // 2 = Free
+        negotiationType: 2,
         negotiationText: "Retiro Gratuitamente",
         timeRemaining: "15 dias"
     },
@@ -21,7 +15,7 @@ const mockItems = [
         category: "Construção",
         image: "https://images.unsplash.com/photo-1621252179027-9ba4595274af?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
         location: "Campinas, SP",
-        negotiationType: 1, // 1 = Paid
+        negotiationType: 1,
         negotiationText: "R$ 150 pelo lote",
         timeRemaining: "7 dias"
     },
@@ -31,7 +25,7 @@ const mockItems = [
         category: "Móveis",
         image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
         location: "Belo Horizonte, MG",
-        negotiationType: 3, // 3 = Charge to discard
+        negotiationType: 3,
         negotiationText: "Cobro R$ 80 para retirar",
         timeRemaining: "24h"
     },
@@ -55,7 +49,6 @@ function renderShowcase() {
     const showcaseGrid = document.getElementById('showcase-grid');
     if (!showcaseGrid) return;
 
-    // Clear loading state
     showcaseGrid.innerHTML = '';
 
     mockItems.forEach(item => {
