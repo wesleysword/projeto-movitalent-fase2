@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="../assets/css/base/variables.css">
     <link rel="stylesheet" href="../assets/css/base/reset.css">
     
-    <link rel="stylesheet" href="../assets/css/components/brand.css"> <link rel="stylesheet" href="../assets/css/pages/auth.css">
+    <link rel="stylesheet" href="../assets/css/components/brand.css">
+    <link rel="stylesheet" href="../assets/css/pages/auth.css">
 </head>
 <body>
 
@@ -50,13 +51,18 @@
                 <p class="text-muted mb-4">Insira seus dados para acessar sua conta.</p>
 
                 <form id="form-login">
+                    
+                    <div id="login-error-msg" class="alert alert-danger d-none py-2 fs-6" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i> Credenciais inválidas. Tente usar <strong>admin</strong> / <strong>admin</strong>.
+                    </div>
+
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="loginEmail" placeholder="nome@exemplo.com" required>
-                        <label for="loginEmail">E-mail</label>
+                        <input type="text" class="form-control" id="loginUsername" placeholder="Usuário" value="admin" required>
+                        <label for="loginUsername">Usuário ou E-mail</label>
                     </div>
                     
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="loginPassword" placeholder="Senha" required>
+                        <input type="password" class="form-control" id="loginPassword" placeholder="Senha" value="admin" required>
                         <label for="loginPassword">Senha</label>
                     </div>
 
