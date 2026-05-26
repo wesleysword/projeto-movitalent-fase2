@@ -1,0 +1,43 @@
+.stats-section {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 5rem 0;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.stat-counter-wrapper {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.stat-counter {
+    font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-description {
+    color: #9CA3AF;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}

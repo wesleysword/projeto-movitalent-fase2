@@ -19,10 +19,15 @@
     <link rel="stylesheet" href="./assets/css/layout/cta.css">
     <link rel="stylesheet" href="./assets/css/layout/footer.css">
     
-    <link rel="stylesheet" href="./assets/css/components/brand.css"> <link rel="stylesheet" href="./assets/css/components/cards.css">
+    <link rel="stylesheet" href="./assets/css/components/brand.css">
+    <link rel="stylesheet" href="./assets/css/components/cards.css">
     <link rel="stylesheet" href="./assets/css/components/categories.css">
     <link rel="stylesheet" href="./assets/css/components/features.css">
     <link rel="stylesheet" href="./assets/css/components/faq.css">
+    <link rel="stylesheet" href="./assets/css/components/steps.css">
+    <link rel="stylesheet" href="./assets/css/components/testimonials.css">
+    <link rel="stylesheet" href="./assets/css/components/stats.css">
+    <link rel="stylesheet" href="./assets/css/components/signup-cta.css">
 </head>
 <body>
 
@@ -94,6 +99,37 @@
         </div>
     </section>
 
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 col-md-4">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="bi bi-box-seam"></i></div>
+                        <div class="stat-counter-wrapper">+<span class="stat-counter" data-target="12450">0</span></div>
+                        <h4 class="stat-label">Itens Reaproveitados</h4>
+                        <p class="stat-description">Móveis, roupas e materiais que ganharam um novo ciclo de vida útil.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="bi bi-tree"></i></div>
+                        <div class="stat-counter-wrapper"><span class="stat-counter" data-target="85">0</span>t</div>
+                        <h4 class="stat-label">CO₂ Evitado</h4>
+                        <p class="stat-description">Toneladas de gases poluentes que deixaram de ser geradas com novos produtos.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="bi bi-shield-lock"></i></div>
+                        <div class="stat-counter-wrapper">+<span class="stat-counter" data-target="3200">0</span></div>
+                        <h4 class="stat-label">Acordos Seguros</h4>
+                        <p class="stat-description">Negociações concluídas com sucesso e descarte correto na comunidade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="features-section py-5">
         <div class="container py-4">
             <div class="text-center mb-5">
@@ -105,14 +141,14 @@
                     <div class="feature-card">
                         <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
                         <h4 class="feature-title">Segurança Garantida</h4>
-                        <p class="feature-text">Perfis de usuários verificados e moderação ativa para que você possa negociar e retirar itens com total tranquilidade.</p>
+                        <p class="feature-text">Perfis de usuários verificados e moderação activa para que você possa negociar e retirar itens com total tranquilidade.</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="bi bi-recycle"></i></div>
                         <h4 class="feature-title">Impacto Ambiental</h4>
-                        <p class="feature-text">Ao reaproveitar móveis, sucata e eletrônicos, você promove ativamente a economia circular e salva o planeta.</p>
+                        <p class="feature-text">Ao reaproveitar móveis, sucata e eletrónicos, você promove ativamente a economia circular e salva o planeta.</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
@@ -140,6 +176,121 @@
         </div>
     </section>
 
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold display-6 mb-3" style="color: var(--color-primary);">O que nossa comunidade diz</h2>
+                <p class="text-muted fs-5">Histórias reais de pessoas que transformaram o descarte em oportunidade.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-12 col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">"Tinha um sofá antigo ocupando espaço e não queria pagar uma caçamba. Em menos de 2 horas no EcoTrade, um rapaz veio retirar de graça para reformar. Simplesmente fantástico!"</p>
+                        <div class="testimonial-user">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Avatar Mariana" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h5 class="testimonial-name">Mariana Souza</h5>
+                                <span class="testimonial-role">São Paulo, SP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">"Encontrei madeiras de demolição perfeitas para o meu projeto de marcenaria. A negociação foi super transparente e o dono ainda me ajudou a carregar no carro."</p>
+                        <div class="testimonial-user">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Avatar Carlos" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h5 class="testimonial-name">Carlos Mendes</h5>
+                                <span class="testimonial-role">Curitiba, PR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                        <p class="testimonial-text">"Uso a plataforma para doar eletrónicos quebrados. Sempre tem estudantes ou assistências técnicas buscando peças. É muito melhor do que jogar no lixo comum!"</p>
+                        <div class="testimonial-user">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Avatar Letícia" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h5 class="testimonial-name">Letícia Ribeiro</h5>
+                                <span class="testimonial-role">Belo Horizonte, MG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="steps-section">
+        <div class="container">
+            <div class="text-center mb-5 pb-3">
+                <h2 class="fw-bold display-6 mb-3" style="color: var(--color-primary);">Como Funciona</h2>
+                <p class="text-muted fs-5">Comece a fazer a diferença em apenas três passos simples.</p>
+            </div>
+            <div class="row g-4 step-wrapper">
+                <div class="col-12 col-md-4 step-card">
+                    <div class="step-icon-wrapper">
+                        <i class="bi bi-camera"></i>
+                        <span class="step-badge">1</span>
+                    </div>
+                    <h4 class="step-title">Anuncie seu Desapego</h4>
+                    <p class="step-description">Tire boas fotos do item, faça uma descrição honesta e defina o seu modelo de negociação.</p>
+                </div>
+                <div class="col-12 col-md-4 step-card">
+                    <div class="step-icon-wrapper">
+                        <i class="bi bi-chat-dots"></i>
+                        <span class="step-badge">2</span>
+                    </div>
+                    <h4 class="step-title">Receba Propostas</h4>
+                    <p class="step-description">Aguarde os interessados entrarem em contato e negocie todos os detalhes diretamente na plataforma.</p>
+                </div>
+                <div class="col-12 col-md-4 step-card">
+                    <div class="step-icon-wrapper">
+                        <i class="bi bi-check2-circle"></i>
+                        <span class="step-badge">3</span>
+                    </div>
+                    <h4 class="step-title">Feche Negócio</h4>
+                    <p class="step-description">Combine a retirada com segurança, libere o espaço na sua casa e ajude a salvar o meio ambiente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="signup-cta-section">
+        <div class="container">
+            <div class="signup-cta-container">
+                <h2 class="signup-cta-title">Faça parte do movimento EcoTrade</h2>
+                <p class="signup-cta-text">Junte-se a milhares de pessoas que já estão transformando a forma como consumimos e descartamos. Criar uma conta é 100% gratuito e leva menos de um minuto.</p>
+                <a href="./pages/auth.html#register" class="btn-signup-pulse">
+                    Quero me Cadastrar Agora <i class="bi bi-person-plus"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section class="faq-section py-5 my-3">
         <div class="container">
             <div class="row justify-content-center">
@@ -148,7 +299,6 @@
                         <h2 class="fw-bold" style="color: var(--color-primary);">Perguntas Frequentes</h2>
                         <p class="text-muted">Tire suas dúvidas e comece a usar o EcoTrade agora mesmo.</p>
                     </div>
-
                     <div class="accordion faq-accordion" id="faqAccordion">
                         <div class="accordion-item shadow-sm">
                             <h2 class="accordion-header" id="headingOne">
@@ -182,7 +332,7 @@
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    Você pode anunciar roupas, livros, móveis, eletrônicos (mesmo com defeito), sobras de madeira, sucata, materiais de construção, utensílios e recicláveis em geral. O importante é que a descrição seja honesta sobre o estado do produto.
+                                    Você pode anunciar roupas, livros, móveis, eletrónicos (mesmo com defeito), sobras de madeira, sucata, materiais de construção, utensílios e recicláveis em geral. O importante é que a descrição seja honesta sobre o estado do produto.
                                 </div>
                             </div>
                         </div>
@@ -272,5 +422,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/trending.js"></script>
+    <script type="module" src="./js/stats.js"></script>
 </body>
 </html>

@@ -1,0 +1,79 @@
+.steps-section {
+    background-color: var(--color-white);
+    padding: 6rem 0;
+}
+
+.step-card {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
+}
+
+.step-icon-wrapper {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 1.5rem auto;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.step-card:hover .step-icon-wrapper {
+    transform: translateY(-5px) scale(1.05);
+    background-color: var(--color-secondary);
+}
+
+.step-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 3px solid var(--color-white);
+}
+
+.step-title {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.step-description {
+    color: var(--color-gray-medium);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    .step-wrapper {
+        position: relative;
+    }
+    
+    .step-card:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 45px;
+        right: -50%;
+        width: 100%;
+        height: 2px;
+        border-top: 3px dashed #E5E7EB;
+        z-index: -1;
+    }
+}
