@@ -1,0 +1,123 @@
+.form-card-dash {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #E5E7EB;
+    margin-bottom: 2rem;
+}
+
+.form-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.profile-avatar-edit {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.profile-avatar-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-bg-light);
+}
+
+.btn-change-avatar {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    border: 1px solid #E5E7EB;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.btn-change-avatar:hover {
+    background-color: #E5E7EB;
+}
+
+.dash-input {
+    border-color: #E5E7EB;
+    color: var(--color-text-dark);
+    border-radius: var(--border-radius);
+}
+
+.dash-input:focus {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 0.25rem rgba(249, 115, 22, 0.25);
+}
+
+.btn-save-dash {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+.btn-save-dash:hover {
+    background-color: #E06512;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+}
+
+.settings-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.settings-group:last-child {
+    border-bottom: none;
+}
+
+.settings-info h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin: 0 0 0.25rem 0;
+}
+
+.settings-info p {
+    font-size: 0.85rem;
+    color: var(--color-gray-medium);
+    margin: 0;
+}
+
+.form-switch .form-check-input {
+    width: 3rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.form-switch .form-check-input:checked {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+.alert-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    transform: translateX(150%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.alert-toast.show {
+    transform: translateX(0);
+}
