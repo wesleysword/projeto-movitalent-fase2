@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../assets/css/base/variables.css">
     <link rel="stylesheet" href="../assets/css/base/reset.css">
     <link rel="stylesheet" href="../assets/css/components/brand.css">
+    <link rel="stylesheet" href="../assets/css/components/notifications.css">
     <link rel="stylesheet" href="../assets/css/pages/dashboard.css">
     <link rel="stylesheet" href="../assets/css/pages/my-ads.css">
 </head>
@@ -41,11 +42,17 @@
                 <a href="./my-ads.html" class="sidebar-link active">
                     <i class="bi bi-box-seam"></i> Meus Anúncios
                 </a>
-                <a href="#" class="sidebar-link">
+                <a href="./proposals-received.html" class="sidebar-link">
                     <i class="bi bi-inbox"></i> Propostas Recebidas
                 </a>
-                <a href="#" class="sidebar-link">
+                <a href="./proposals-sent.html" class="sidebar-link">
                     <i class="bi bi-send"></i> Propostas Enviadas
+                </a>
+                <a href="./messages.html" class="sidebar-link">
+                    <i class="bi bi-chat-left-text"></i> Minhas Mensagens
+                </a>
+                <a href="./coleta-partners.html" class="sidebar-link">
+                    <i class="bi bi-geo-alt"></i> Locais de Coleta
                 </a>
                 
                 <div class="sidebar-heading mt-4">Conta</div>
@@ -72,15 +79,28 @@
                 </div>
                 
                 <div class="user-profile-menu">
-                    <button class="btn btn-link text-muted fs-4 p-0 me-3 position-relative">
-                        <i class="bi bi-bell"></i>
-                    </button>
+                    <div class="dropdown">
+                        <button class="btn btn-link text-muted fs-4 p-0 me-3 position-relative border-0 shadow-none" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <i class="bi bi-bell"></i>
+                            <span id="notifications-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none" style="font-size: 0.6rem; padding: 0.25em 0.4em;">0</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end notifications-dropdown shadow">
+                            <div class="notifications-header">
+                                <h6>Notificações</h6>
+                                <button class="btn-mark-read" id="btn-mark-all-read">Marcar como lidas</button>
+                            </div>
+                            <div class="notifications-body" id="notifications-list"></div>
+                            <div class="notifications-footer">
+                                <a href="#">Ver todas as notificações</a>
+                            </div>
+                        </div>
+                    </div>
                     <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar" class="user-avatar">
                 </div>
             </div>
 
             <div class="d-flex justify-content-end mb-4">
-                <button type="button" class="btn fw-bold" style="background-color: var(--color-secondary); color: white;" id="btn-add-new">
+                <button type="button" class="btn fw-bold shadow-sm" style="background-color: var(--color-secondary); color: white;" id="btn-add-new">
                     <i class="bi bi-plus-lg me-1"></i> Criar Novo Anúncio
                 </button>
             </div>
@@ -139,7 +159,7 @@
                             </div>
 
                             <div class="col-md-3">
-                                <label class="form-label fw-semibold text-muted">Duração (Dias)</label>
+                                <label class="form-label fw-semibold text-muted">Duração</label>
                                 <select class="form-select dash-input" id="adDuration" required>
                                     <option value="7">7 dias</option>
                                     <option value="15">15 dias</option>
@@ -176,6 +196,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../js/notifications.js"></script>
     <script type="module" src="../js/my-ads.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propostas Recebidas - EcoTrade</title>
+    <title>Locais de Coleta Parceiros - EcoTrade</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../assets/css/components/brand.css">
     <link rel="stylesheet" href="../assets/css/components/notifications.css">
     <link rel="stylesheet" href="../assets/css/pages/dashboard.css">
-    <link rel="stylesheet" href="../assets/css/pages/my-ads.css">
+    <link rel="stylesheet" href="../assets/css/pages/coleta-partners.css">
 </head>
 <body>
 
@@ -42,7 +42,7 @@
                 <a href="./my-ads.html" class="sidebar-link">
                     <i class="bi bi-box-seam"></i> Meus Anúncios
                 </a>
-                <a href="./proposals-received.html" class="sidebar-link active">
+                <a href="./proposals-received.html" class="sidebar-link">
                     <i class="bi bi-inbox"></i> Propostas Recebidas
                 </a>
                 <a href="./proposals-sent.html" class="sidebar-link">
@@ -51,7 +51,7 @@
                 <a href="./messages.html" class="sidebar-link">
                     <i class="bi bi-chat-left-text"></i> Minhas Mensagens
                 </a>
-                <a href="./coleta-partners.html" class="sidebar-link">
+                <a href="./coleta-partners.html" class="sidebar-link active">
                     <i class="bi bi-geo-alt"></i> Locais de Coleta
                 </a>
                 
@@ -74,52 +74,21 @@
         <main class="main-content">
             <div class="topbar">
                 <div>
-                    <h2 class="fw-bold mb-1" style="color: var(--color-primary);">Propostas Recebidas</h2>
-                    <p class="text-muted mb-0">Gerencie e responda às ofertas feitas pelos interessados nos seus itens.</p>
-                </div>
-                
-                <div class="user-profile-menu">
-                    <div class="dropdown">
-                        <button class="btn btn-link text-muted fs-4 p-0 me-3 position-relative border-0 shadow-none" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <i class="bi bi-bell"></i>
-                            <span id="notifications-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none" style="font-size: 0.6rem; padding: 0.25em 0.4em;">0</span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end notifications-dropdown shadow">
-                            <div class="notifications-header">
-                                <h6>Notificações</h6>
-                                <button class="btn-mark-read" id="btn-mark-all-read">Marcar como lidas</button>
-                            </div>
-                            <div class="notifications-body" id="notifications-list"></div>
-                            <div class="notifications-footer">
-                                <a href="#">Ver todas as notificações</a>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar" class="user-avatar">
+                    <h2 class="fw-bold mb-1" style="color: var(--color-primary);">Locais de Coleta Parceiros</h2>
+                    <p class="text-muted mb-0">Ecopontos oficiais e cooperativas credenciadas integradas ao nosso sistema.</p>
                 </div>
             </div>
 
-            <div class="data-table-container">
-                <table class="table table-custom table-ads">
-                    <thead>
-                        <tr>
-                            <th>Item Anunciado</th>
-                            <th>Interessado</th>
-                            <th>Tipo de Proposta</th>
-                            <th>Data</th>
-                            <th>Status</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="proposals-received-tbody"></tbody>
-                </table>
+            <div class="mb-4">
+                <input type="text" id="partner-search-input" class="form-control form-control-lg border-2 shadow-none" placeholder="Filtrar por nome do local, cidade ou tipo de resíduo aceito...">
             </div>
+
+            <div id="partner-grid-container" class="partner-grid"></div>
 
         </main>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="../js/notifications.js"></script>
-    <script type="module" src="../js/proposals-received.js"></script>
+    <script type="module" src="../js/coleta-partners.js"></script>
 </body>
 </html>
